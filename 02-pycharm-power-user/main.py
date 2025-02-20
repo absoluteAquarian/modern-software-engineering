@@ -25,6 +25,7 @@ def play_the_game():
     for turn in range(9):
         player = players[turn % 2]
         while 1:
+            # noinspection PyBroadException
             try:
                 row, column = map(int, input(f"P {player}, row col (0-2): ").split())
                 if board[row][column] == " ":
