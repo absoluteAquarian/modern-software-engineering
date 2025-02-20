@@ -1,10 +1,20 @@
-def print_board(board):
+def print_board(board: list[list[str]]) -> None:
+    """
+    Prints the current state of the Tic-Tac-Toe game board
+    :param board: The game board represented as a jagged 2D list of strings
+    """
     for row in board:
         print(" | ".join(row))
         print("-" * 5)
 
 
-def has_player_won(board, player):
+def has_player_won(board: list[list[str]], player: str) -> bool:
+    """
+    Checks if any vertical, horizontal or diagonal line has 3 marks for the
+    given player
+    :param board: The game board represented as a jagged 2D list of strings
+    :param player: The icon for the player, either X or O
+    """
     for i in range(3):
         if all(board[i][j] == player for j in range(3)) or all(board[j][i] == player for j in range(3)):
             return True
@@ -13,11 +23,18 @@ def has_player_won(board, player):
     return False
 
 
-def is_board_full(b):
-    return all(c != " " for r in b for c in r)
+def is_board_full(board: list[list[str]]) -> bool:
+    """
+    Checks if the board is completely full of player marks
+    :param board: The game board represented as a 2D jagged list of strings
+    """
+    return all(column != " " for row in board for column in row)
 
 
-def play_the_game():
+def play_the_game() -> None:
+    """
+    Plays one round of Tic-Tac-Toe
+    """
     board = [[" " for _ in range(3)] for _ in range(3)]
     players = ["X", "O"]
     print("Tic-Tac-Toe Game")
@@ -35,7 +52,13 @@ def play_the_game():
     print("Draw!")
 
 # Method extracted from play_the_game()
-def place_mark_for_player(board, player):
+def place_mark_for_player(board: list[list[str]], player: str) -> None:
+    """
+    Requests a coordinate on the board to place a mark for the given player,
+    and places it if the space is empty
+    :param board: The game board represented as a jagged 2D list of strings
+    :param player: The icon for the player, either X or O
+    """
     while 1:
         # noinspection PyBroadException
         try:
