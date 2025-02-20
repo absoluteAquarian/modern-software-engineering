@@ -24,17 +24,7 @@ def play_the_game():
     print_board(board)
     for turn in range(9):
         player = players[turn % 2]
-        while 1:
-            # noinspection PyBroadException
-            try:
-                row, column = map(int, input(f"P {player}, row col (0-2): ").split())
-                if board[row][column] == " ":
-                    board[row][column] = player
-                    break
-                else:
-                    print("Nope. Again.")
-            except:
-                print("Wrong. 0-2 pls.")
+        place_mark_for_player(board, player)
         print_board(board)
         if has_player_won(board, player):
             print(f"P {player} wins!")
@@ -43,6 +33,20 @@ def play_the_game():
             print("Draw!")
             return
     print("Draw!")
+
+# Method extracted from play_the_game()
+def place_mark_for_player(board, player):
+    while 1:
+        # noinspection PyBroadException
+        try:
+            row, column = map(int, input(f"P {player}, row col (0-2): ").split())
+            if board[row][column] == " ":
+                board[row][column] = player
+                break
+            else:
+                print("Nope. Again.")
+        except:
+            print("Wrong. 0-2 pls.")
 
 
 play_the_game()
