@@ -1,6 +1,16 @@
 def divide_numbers(a, b):
     """Returns the result of a divided by b, rounded to two decimals."""
-    result = a / b  # Bug: No handling for division by zero
+
+    # 0/0 is undefined, +X/0 is +inf and -X/0 is -inf
+    if b == 0:
+        if a == 0:
+            return float('nan')
+        elif a < 0:
+            return float('-inf')
+        else:
+            return float('inf')
+
+    result = a / b
     return round(result, 2)
 
 
