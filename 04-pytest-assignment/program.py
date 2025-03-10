@@ -16,7 +16,11 @@ def divide_numbers(a, b):
 
 def reverse_string(s):
     """Returns the reversed string, with each character's case flipped."""
-    reversed_s = s[::-1]  # Bug: Might not handle non-string input properly
+
+    if not isinstance(s, str):
+        raise TypeError('Argument must be a str')
+
+    reversed_s = s[::-1]
     flipped_case = ''.join([char.swapcase() for char in reversed_s])
     return flipped_case
 
