@@ -21,3 +21,15 @@ def test_reverse_string_not_string():
 
 def test_reverse_string_empty_string():
     assert reverse_string('') == ''
+
+def test_get_list_element():
+    lst = [ 1, 3, 5, 7, 9 ]
+    assert get_list_element(lst, 1) == 3
+
+def test_get_list_element_negative():
+    lst = [ 1, 3, 5, 7, 9 ]
+    pytest.raises(IndexError, get_list_element, lst, -1)
+
+def test_get_list_element_too_large():
+    lst = [ 1, 3, 5, 7, 9 ]
+    pytest.raises(IndexError, get_list_element, lst, 5)
