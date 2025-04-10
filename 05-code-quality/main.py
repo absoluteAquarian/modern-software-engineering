@@ -1,13 +1,9 @@
 import math
 import random
 
-
+@profile
 def expensive_op(n):
-    total = 0
-    for i in range(1000):
-        total += i * n
-    return total
-
+    return n * 999 * 1000 // 2
 
 def slow_func(lst):
     result = []
@@ -15,13 +11,11 @@ def slow_func(lst):
         result.append(expensive_op(i))
     return result
 
-
 def unused_function():
     x = 10
     y = 20
     z = x + y
     return z
-
 
 def main():
     numbers = list(range(1000))
