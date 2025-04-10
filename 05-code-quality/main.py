@@ -1,7 +1,6 @@
 import math
 import random
 
-@profile
 def expensive_op(n):
     return n * 999 * 1000 // 2
 
