@@ -102,5 +102,21 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
 ```
 
 ## Code Coverage
+Initial coverage:
+```
+Name      Stmts   Miss  Cover
+-----------------------------
+main.py      20      4    80%
+-----------------------------
+TOTAL        20      4    80%
+```
+After removing unused functions:
+```
+Name      Stmts   Miss  Cover
+-----------------------------
+main.py      15      0   100%
+-----------------------------
+TOTAL        15      0   100%
+```
 
 ## Fix Summary
